@@ -8,3 +8,9 @@
   align-items: center;
   justify-content: center;
 }
+
+.active {
+  background: url("https://grid.gograph.com/happy-mole-cartoon-vector-art_gg68718247.jpg");
+  background-position: center;
+  background-size: cover;
+}

@@ -3,7 +3,10 @@ import styles from "./Circle.module.css";
 
 const Circle = (props) => {
   return (
-    <div className={styles.circle} onClick={props.onClick}>
+    <div
+      className={`${styles.circle} ${props.active ? styles.active : ""}`}
+      onClick={props.click}
+    >
       {props.id}
     </div>
   );
