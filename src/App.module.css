@@ -1,0 +1,41 @@
+.App {
+  text-align: center;
+  line-height: 1.8;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: start;
+  gap: 10rem;
+  font-size: 1.8rem;
+  max-width: 1200px;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 5rem 0;
+}
+
+h1 {
+  font-size: clamp(3rem, 4vw, 5rem);
+  /* text-transform: uppercase; */
+  letter-spacing: 5px;
+}
+
+.circles {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+img {
+  object-fit: cover;
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+}
+
+@media screen and (min-width: 678px) {
+  .circles {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+  }
+}

@@ -1,0 +1,10 @@
+.circle {
+  border: 1px solid black;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

@@ -1,0 +1,20 @@
+@import url("https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap");
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+  font-family: "Fredoka One", cursive;
+}
+
+#root {
+  background: linear-gradient(#d1e9fa 0 60%, #86c270 40%);
+  min-height: 100vh;
+}
