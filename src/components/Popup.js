@@ -6,10 +6,11 @@ const Popup = (props) => {
     <div className={styles.modal}>
       <div className={styles["modal-content"]}>
         <button className={styles["close-modal-btn"]} onClick={props.onClick}>
-          X close
+          X
         </button>
-        <p className="result">Your final score is {props.score}</p>
-        <p className="message">You have done a great job</p>
+        <p className="result">Your final score is: {props.score}</p>
+
+        <p className="message">{props.message}</p>
       </div>
     </div>
   );
