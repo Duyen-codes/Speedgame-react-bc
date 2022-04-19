@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/Speedgame-redo/static/css/main.461e4a5e.css",
+    "main.js": "/Speedgame-redo/static/js/main.0ccb3fb1.js",
+    "static/media/sound-track.mp3": "/Speedgame-redo/static/media/sound-track.4fdd6ca5fbda613f182c.mp3",
+    "static/media/gameover.mp3": "/Speedgame-redo/static/media/gameover.9cb0ecc9a49b98688249.mp3",
+    "static/media/pen-clicking.mp3": "/Speedgame-redo/static/media/pen-clicking.174c1b724d5b3fea228c.mp3",
+    "static/media/mouse.jpeg": "/Speedgame-redo/static/media/mouse.f2dbb1072dc6d80d5dd6.jpeg",
+    "index.html": "/Speedgame-redo/index.html",
+    "main.461e4a5e.css.map": "/Speedgame-redo/static/css/main.461e4a5e.css.map",
+    "main.0ccb3fb1.js.map": "/Speedgame-redo/static/js/main.0ccb3fb1.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.461e4a5e.css",
+    "static/js/main.0ccb3fb1.js"
+  ]
+}
