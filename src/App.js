@@ -42,7 +42,7 @@ class App extends Component {
       case "difficult":
         return (this.circles = [0, 0, 0, 0, 0]);
       default:
-        return (this.circles = [0, 0, 0]);
+        return null;
     }
   }
 
