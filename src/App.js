@@ -5,7 +5,7 @@ import Button from "./components/Button";
 import Circle from "./components/Circle";
 import Popup from "./components/Popup";
 
-import { circles } from "./circles";
+// import { circles } from "./circles";
 import startMusic from "./assets/sounds/sound-track.mp3";
 import stopMusic from "./assets/sounds/gameover.mp3";
 import click from "./assets/sounds/pen-clicking.mp3";
@@ -29,6 +29,22 @@ class App extends Component {
   };
 
   timer = null;
+  circles = null;
+
+  levelHandler(level) {
+    switch (level) {
+      case "easy":
+        return (this.circles = [0, 0, 0]);
+        break;
+      case "medium":
+        return (this.circles = [0, 0, 0, 0]);
+        break;
+      case "difficult":
+        return (this.circles = [0, 0, 0, 0, 0]);
+      default:
+        return (this.circles = [0, 0, 0]);
+    }
+  }
 
   clickPlay = () => {
     if (clickSound.paused) {
@@ -66,7 +82,6 @@ class App extends Component {
       pace: this.state.pace * 0.95,
       rounds: this.state.rounds + 1,
     });
-    console.log("rounds: ", this.state.rounds);
     this.timer = setTimeout(this.nextCircle, this.state.pace);
   };
 
@@ -105,8 +120,14 @@ class App extends Component {
           <p>Your score: {this.state.score}</p>
         </div>
 
+        <div>
+          <h2>Choose game level</h2>
+          <button onClick={() => this.levelHandler("easy")}>Easy</button>
+          <button onClick={() => this.levelHandler("easy")}>Medium</button>
+          <button onClick={() => this.levelHandler("easy")}>Hard</button>
+        </div>
         <div className={styles.circles}>
-          {circles.map((_, index) => (
+          {this.circles.map((_, index) => (
             <Circle
               key={index}
               id={index}
