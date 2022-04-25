@@ -26,21 +26,27 @@ class App extends Component {
     pace: 1500,
     rounds: 0,
     gameOn: false,
+    circles: [],
   };
 
   timer = null;
-  circles = null;
 
   levelHandler(level) {
+    console.log("clicked", level);
+
     switch (level) {
       case "easy":
-        return (this.circles = [0, 0, 0]);
+        this.setState({ circles: [0, 0, 0] });
+
+        console.log("switch easy");
         break;
       case "medium":
-        return (this.circles = [0, 0, 0, 0]);
+        this.setState({ circles: [0, 0, 0, 0] });
+        console.log("switch medium");
         break;
-      case "difficult":
-        return (this.circles = [0, 0, 0, 0, 0]);
+      case "hard":
+        this.setState({ circles: [0, 0, 0, 0, 0] });
+        break;
       default:
         return null;
     }
@@ -75,7 +81,7 @@ class App extends Component {
     let nextActive;
 
     do {
-      nextActive = getRndInteger(0, 3);
+      nextActive = getRndInteger(0, this.state.circles.length);
     } while (nextActive === this.state.current);
     this.setState({
       current: nextActive,
@@ -123,11 +129,11 @@ class App extends Component {
         <div>
           <h2>Choose game level</h2>
           <button onClick={() => this.levelHandler("easy")}>Easy</button>
-          <button onClick={() => this.levelHandler("easy")}>Medium</button>
-          <button onClick={() => this.levelHandler("easy")}>Hard</button>
+          <button onClick={() => this.levelHandler("medium")}>Medium</button>
+          <button onClick={() => this.levelHandler("hard")}>Hard</button>
         </div>
         <div className={styles.circles}>
-          {this.circles.map((_, index) => (
+          {this.state.circles.map((_, index) => (
             <Circle
               key={index}
               id={index}
