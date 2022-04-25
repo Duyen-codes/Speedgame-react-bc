@@ -27,13 +27,12 @@ class App extends Component {
     rounds: 0,
     gameOn: false,
     circles: [],
+    isLevelSet: false,
   };
 
   timer = null;
 
   levelHandler(level) {
-    console.log("clicked", level);
-
     switch (level) {
       case "easy":
         this.setState({ circles: [0, 0, 0] });
@@ -73,13 +72,11 @@ class App extends Component {
   };
 
   nextCircle = () => {
-    if (this.state.rounds >= 3) {
+    if (this.state.rounds >= 4) {
       this.stopHandler();
       return;
     }
-
     let nextActive;
-
     do {
       nextActive = getRndInteger(0, this.state.circles.length);
     } while (nextActive === this.state.current);
