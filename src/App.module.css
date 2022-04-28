@@ -16,12 +16,12 @@ h2 {
 }
 
 .circles {
-  border: 1px solid red;
   width: 100%;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, auto));
   place-content: center;
   gap: 2rem;
+  padding: 4rem 0;
 }
 
 img {
