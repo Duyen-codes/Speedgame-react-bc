@@ -4,6 +4,7 @@ import styles from "./App.module.css";
 import Button from "./components/Button";
 import Circle from "./components/Circle";
 import Popup from "./components/Popup";
+import Footer from "./components/Footer";
 
 import startMusic from "./assets/sounds/sound-track.mp3";
 import stopMusic from "./assets/sounds/gameover.mp3";
@@ -53,6 +54,7 @@ class App extends Component {
     if (clickSound.paused) {
       clickSound.play();
     } else {
+      // set playback of audio to 0 second, which is the start position
       clickSound.currentTime = 0;
     }
   };
@@ -176,6 +178,8 @@ class App extends Component {
             message={message}
           />
         )}
+
+        <Footer />
       </div>
     );
   }

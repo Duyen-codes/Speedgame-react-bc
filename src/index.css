@@ -15,6 +15,14 @@ html {
 }
 
 #root {
-  background: linear-gradient(#d1e9fa 0 90%, #86c270 40%);
+  background: #d1e9fa;
   min-height: 100vh;
+}
+
+footer {
+  background: #86c270;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding: 1rem;
 }
