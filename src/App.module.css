@@ -18,6 +18,10 @@ h1 {
   letter-spacing: 5px;
 }
 
+h2 {
+  padding-block: 1rem;
+}
+
 .circles {
   display: grid;
   grid-template-columns: 1fr 1fr;
