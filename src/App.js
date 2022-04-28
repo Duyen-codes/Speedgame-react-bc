@@ -76,12 +76,12 @@ class App extends Component {
       this.stopGameHandler();
       return;
     }
-    let nextActive;
+    let randnum;
     do {
-      nextActive = getRndInteger(0, this.state.circles.length);
-    } while (nextActive === this.state.current);
+      randnum = getRndInteger(0, this.state.circles.length);
+    } while (randnum === this.state.current);
     this.setState({
-      current: nextActive,
+      current: randnum,
       pace: this.state.pace * 0.95,
       rounds: this.state.rounds + 1,
     });
@@ -146,7 +146,7 @@ class App extends Component {
           {this.state.gameOn && <p>Your score: {this.state.score}</p>}
         </div>
 
-        {/* hide level buttons after a level chosen  */}
+        {/* hide level buttons after level chosen  */}
         {!this.state.isLevelSet && (
           <div>
             <h2>Choose game level</h2>
