@@ -1,20 +1,13 @@
 .App {
   text-align: center;
   line-height: 1.8;
-  /* display: flex;
-  flex-flow: column;
-  align-items: center;
-  justify-content: start; */
-  gap: 10rem;
   font-size: 1.8rem;
-  max-width: 1200px;
   margin-right: auto;
   margin-left: auto;
 }
 
 h1 {
   font-size: clamp(3rem, 4vw, 5rem);
-  /* text-transform: uppercase; */
   letter-spacing: 5px;
 }
 
@@ -24,24 +17,17 @@ h2 {
 
 .circles {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem;
-  margin-inline: auto;
-  place-items: center;
-  border: 1px solid red;
+  place-content: center;
+  grid-template-columns: repeat(auto-fit, minmax(0, auto));
+  grid-auto-flow: row;
   padding: 4rem 0;
+  gap: 2rem;
+  border: 1px solid red;
 }
 
 img {
   object-fit: cover;
-  height: 150px;
-  width: 150px;
+  height: 200px;
+  width: 200px;
   border-radius: 50%;
-}
-
-@media screen and (min-width: 678px) {
-  .circles {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  }
 }
