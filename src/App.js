@@ -122,15 +122,19 @@ class App extends Component {
       <div className={styles.App}>
         <div>
           <h1>Speedgame</h1>
+          {/* Render score para when gameOn is true  */}
           {this.state.gameOn && <p>Your score: {this.state.score}</p>}
         </div>
 
-        <div>
-          <h2>Choose game level</h2>
-          <Button click={() => this.levelHandler("easy")}>Easy</Button>
-          <Button click={() => this.levelHandler("medium")}>Medium</Button>
-          <Button click={() => this.levelHandler("hard")}>Hard</Button>
-        </div>
+        {/* hide level buttons after a level chosen  */}
+        {!this.state.isLevelSet && (
+          <div>
+            <h2>Choose game level</h2>
+            <Button click={() => this.levelHandler("easy")}>Easy</Button>
+            <Button click={() => this.levelHandler("medium")}>Medium</Button>
+            <Button click={() => this.levelHandler("hard")}>Hard</Button>
+          </div>
+        )}
 
         <div className={styles.circles}>
           {this.state.circles.map((_, index) => (
@@ -144,6 +148,7 @@ class App extends Component {
           ))}
         </div>
 
+        {/* Render start and end button after game level chosen  */}
         {this.state.isLevelSet && (
           <div className={styles.buttons}>
             {!this.state.gameOn && (
