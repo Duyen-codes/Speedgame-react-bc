@@ -100,9 +100,18 @@ class App extends Component {
     this.setState({ showGameOver: true, gameOn: false });
   };
 
-  closeHandler = () => {
-    window.location.reload();
-    this.setState({ showGameOver: false, score: 0, current: -1, rounds: 0 });
+  closeModalHandler = () => {
+    // window.location.reload();
+    this.setState({
+      score: 0,
+      current: -1,
+      showGameOver: false,
+      pace: 1500,
+      rounds: 0,
+      gameOn: false,
+      circles: [],
+      isLevelSet: false,
+    });
   };
 
   render() {
@@ -163,7 +172,7 @@ class App extends Component {
         {this.state.showGameOver && (
           <Popup
             score={this.state.score}
-            onClick={this.closeHandler}
+            onClick={this.closeModalHandler}
             message={message}
           />
         )}
