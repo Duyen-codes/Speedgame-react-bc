@@ -5,7 +5,6 @@ import Button from "./components/Button";
 import Circle from "./components/Circle";
 import Popup from "./components/Popup";
 
-// import { circles } from "./circles";
 import startMusic from "./assets/sounds/sound-track.mp3";
 import stopMusic from "./assets/sounds/gameover.mp3";
 import click from "./assets/sounds/pen-clicking.mp3";
@@ -38,12 +37,9 @@ class App extends Component {
     switch (level) {
       case "easy":
         this.setState({ circles: [0, 0, 0] });
-
-        console.log("switch easy");
         break;
       case "medium":
         this.setState({ circles: [0, 0, 0, 0] });
-        console.log("switch medium");
         break;
       case "hard":
         this.setState({ circles: [0, 0, 0, 0, 0, 0] });
@@ -64,7 +60,7 @@ class App extends Component {
   circleClickHandler = (i) => {
     this.clickPlay();
     if (this.state.current !== i) {
-      this.stopHandler();
+      this.stopGameHandler();
       return;
     }
     this.setState({
@@ -75,7 +71,7 @@ class App extends Component {
 
   nextCircle = () => {
     if (this.state.rounds >= 4) {
-      this.stopHandler();
+      this.stopGameHandler();
       return;
     }
     let nextActive;
@@ -97,7 +93,7 @@ class App extends Component {
     this.setState({ gameOn: true });
   };
 
-  stopHandler = () => {
+  stopGameHandler = () => {
     startSound.pause();
     stopSound.play();
     clearTimeout(this.timer);
@@ -157,7 +153,10 @@ class App extends Component {
                 <Button>Change level</Button>
               </div>
             )}
-            {this.state.gameOn && <Button click={this.stopHandler}>End</Button>}
+
+            {this.state.gameOn && (
+              <Button click={this.stopGameHandler}>End</Button>
+            )}
           </div>
         )}
 
