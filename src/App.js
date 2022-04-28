@@ -116,6 +116,19 @@ class App extends Component {
     });
   };
 
+  changeLevelHandler = () => {
+    this.setState({
+      score: 0,
+      current: -1,
+      showGameOver: false,
+      pace: 1500,
+      rounds: 0,
+      gameOn: false,
+      circles: [],
+      isLevelSet: false,
+    });
+  };
+
   render() {
     let message = "";
     if (this.state.score <= 50) {
@@ -161,7 +174,7 @@ class App extends Component {
             {!this.state.gameOn && (
               <div className={styles.buttonWrapper}>
                 <Button click={this.startGameHandler}>Start</Button>
-                <Button>Change level</Button>
+                <Button click={this.changeLevelHandler}>Change level</Button>
               </div>
             )}
 
