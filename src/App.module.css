@@ -16,13 +16,12 @@ h2 {
 }
 
 .circles {
-  display: grid;
-  place-content: center;
-  grid-template-columns: repeat(auto-fit, minmax(0, auto));
-  grid-auto-flow: row;
-  padding: 4rem 0;
-  gap: 2rem;
   border: 1px solid red;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, auto));
+  place-content: center;
+  gap: 2rem;
 }
 
 img {
