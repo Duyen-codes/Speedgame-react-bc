@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./Popup.module.css";
+import Button from "./Button";
 
 const Popup = (props) => {
   return (
@@ -11,6 +12,7 @@ const Popup = (props) => {
         <p className="result">Your final score is: {props.score}</p>
 
         <p className="message">{props.message}</p>
+        <Button click={props.onClick}>Play again!</Button>
       </div>
     </div>
   );

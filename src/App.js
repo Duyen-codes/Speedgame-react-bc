@@ -33,6 +33,8 @@ class App extends Component {
   timer = null;
 
   levelHandler(level) {
+    // Change level state is set
+    this.setState({ isLevelSet: true });
     switch (level) {
       case "easy":
         this.setState({ circles: [0, 0, 0] });
@@ -44,7 +46,7 @@ class App extends Component {
         console.log("switch medium");
         break;
       case "hard":
-        this.setState({ circles: [0, 0, 0, 0, 0] });
+        this.setState({ circles: [0, 0, 0, 0, 0, 0] });
         break;
       default:
         return null;
@@ -120,15 +122,17 @@ class App extends Component {
       <div className={styles.App}>
         <div>
           <h1>Speedgame</h1>
-          <p>Your score: {this.state.score}</p>
+          {this.state.gameOn && <p>Your score: {this.state.score}</p>}
         </div>
 
         <div>
           <h2>Choose game level</h2>
-          <button onClick={() => this.levelHandler("easy")}>Easy</button>
-          <button onClick={() => this.levelHandler("medium")}>Medium</button>
-          <button onClick={() => this.levelHandler("hard")}>Hard</button>
+          <Button click={() => this.levelHandler("easy")}>Easy</Button>
+
+          <Button click={() => this.levelHandler("medium")}>Medium</Button>
+          <Button click={() => this.levelHandler("hard")}>Hard</Button>
         </div>
+
         <div className={styles.circles}>
           {this.state.circles.map((_, index) => (
             <Circle
@@ -141,12 +145,14 @@ class App extends Component {
           ))}
         </div>
 
-        <div className={styles.buttons}>
-          {!this.state.gameOn && (
-            <Button click={this.startHandler}>Start</Button>
-          )}
-          {this.state.gameOn && <Button click={this.stopHandler}>End</Button>}
-        </div>
+        {this.state.isLevelSet && (
+          <div className={styles.buttons}>
+            {!this.state.gameOn && (
+              <Button click={this.startHandler}>Start</Button>
+            )}
+            {this.state.gameOn && <Button click={this.stopHandler}>End</Button>}
+          </div>
+        )}
 
         {this.state.showGameOver && (
           <Popup
