@@ -122,7 +122,7 @@ class App extends Component {
       <div className={styles.App}>
         <div>
           <h1>Speedgame</h1>
-          {/* Render score para when gameOn is true  */}
+          {/* Render score para after start button clicks */}
           {this.state.gameOn && <p>Your score: {this.state.score}</p>}
         </div>
 
@@ -148,11 +148,14 @@ class App extends Component {
           ))}
         </div>
 
-        {/* Render start and end button after game level chosen  */}
+        {/* Show start and end button after game level chosen  */}
         {this.state.isLevelSet && (
           <div className={styles.buttons}>
             {!this.state.gameOn && (
-              <Button click={this.startHandler}>Start</Button>
+              <div className={styles.buttonWrapper}>
+                <Button click={this.startHandler}>Start</Button>
+                <Button>Change level</Button>
+              </div>
             )}
             {this.state.gameOn && <Button click={this.stopHandler}>End</Button>}
           </div>

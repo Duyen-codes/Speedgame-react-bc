@@ -24,6 +24,11 @@ h2 {
   padding: 4rem 0;
 }
 
+.buttonWrapper {
+  display: flex;
+  justify-content: center;
+}
+
 img {
   object-fit: cover;
   height: 200px;
