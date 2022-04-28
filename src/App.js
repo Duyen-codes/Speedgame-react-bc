@@ -86,7 +86,7 @@ class App extends Component {
     this.timer = setTimeout(this.nextCircle, this.state.pace);
   };
 
-  startHandler = () => {
+  startGameHandler = () => {
     startSound.play();
     startSound.loop = true;
     this.nextCircle();
@@ -149,7 +149,7 @@ class App extends Component {
           <div className={styles.buttons}>
             {!this.state.gameOn && (
               <div className={styles.buttonWrapper}>
-                <Button click={this.startHandler}>Start</Button>
+                <Button click={this.startGameHandler}>Start</Button>
                 <Button>Change level</Button>
               </div>
             )}
