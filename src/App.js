@@ -103,17 +103,17 @@ class App extends Component {
   };
 
   closeModalHandler = () => {
-    // window.location.reload();
-    this.setState({
-      score: 0,
-      current: -1,
-      showGameOver: false,
-      pace: 1500,
-      rounds: 0,
-      gameOn: false,
-      circles: [],
-      isLevelSet: false,
-    });
+    window.location.reload();
+    // this.setState({
+    //   score: 0,
+    //   current: -1,
+    //   showGameOver: false,
+    //   pace: 1500,
+    //   rounds: 0,
+    //   gameOn: false,
+    //   circles: [],
+    //   isLevelSet: false,
+    // });
   };
 
   changeLevelHandler = () => {
