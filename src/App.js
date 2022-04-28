@@ -128,7 +128,6 @@ class App extends Component {
         <div>
           <h2>Choose game level</h2>
           <Button click={() => this.levelHandler("easy")}>Easy</Button>
-
           <Button click={() => this.levelHandler("medium")}>Medium</Button>
           <Button click={() => this.levelHandler("hard")}>Hard</Button>
         </div>
