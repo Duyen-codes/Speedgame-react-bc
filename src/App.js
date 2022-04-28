@@ -132,9 +132,9 @@ class App extends Component {
   render() {
     let message = "";
     if (this.state.score <= 50) {
-      message = "You can do better!";
+      message = "Better luck next time!";
     } else if (this.state.score > 50 && this.state.score <= 100) {
-      message = "Well done";
+      message = "Very good!";
     } else {
       message = "Great job!";
     }
@@ -171,12 +171,10 @@ class App extends Component {
         {/* Show start and end button after game level chosen  */}
         {this.state.isLevelSet && (
           <div className={styles.buttons}>
-            {!this.state.gameOn && (
-              <div className={styles.buttonWrapper}>
-                <Button click={this.startGameHandler}>Start</Button>
-                <Button click={this.changeLevelHandler}>Change level</Button>
-              </div>
-            )}
+            {!this.state.gameOn && [
+              <Button click={this.startGameHandler}>Start</Button>,
+              <Button click={this.changeLevelHandler}>Change level</Button>,
+            ]}
 
             {this.state.gameOn && (
               <Button click={this.stopGameHandler}>End</Button>
