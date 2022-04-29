@@ -64,18 +64,20 @@ class App extends Component {
   circleClickHandler = (i) => {
     this.clickPlay();
     if (this.state.current !== i) {
-      this.stopGameHandler();
-      return; // because if we don't return anything, it will continue infinitely
+      // this.stopGameHandler(); stop game right away when user misclick
+      this.setState({ rounds: this.state.rounds + 1 });
+      // return; // because if we don't return anything, it will continue infinitely
+    } else {
+      this.setState({
+        score: this.state.score + 10,
+        rounds: this.state.rounds - 1,
+      });
     }
-    this.setState({
-      score: this.state.score + 10,
-      rounds: this.state.rounds - 1,
-    });
   };
 
   roundHandler = () => {
     if (this.state.rounds >= 5) {
-      // if player miss more than 4 rounds, game stops
+      // if player miss more than 5 rounds, game stops
       this.stopGameHandler();
       return;
     }
@@ -149,7 +151,7 @@ class App extends Component {
         <div>
           <h1>Speedgame</h1>
           {/* Render score para after start button clicks */}
-          {this.state.gameOn && <p>Your score: {this.state.score}</p>}
+          {this.state.gameOn && <h2>Your score: {this.state.score}</h2>}
         </div>
 
         {/* hide level buttons after level chosen  */}

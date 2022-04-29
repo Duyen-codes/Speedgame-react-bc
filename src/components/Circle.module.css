@@ -1,5 +1,5 @@
 .circle {
-  border: 1px solid black;
+  border: 1px solid rgb(166, 218, 213);
   width: 200px;
   aspect-ratio: 1/1;
   border-radius: 50%;
@@ -14,4 +14,32 @@
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+}
+
+.active:active {
+  animation: scale 2s infinite, pulse 0.2s 1 ease-out;
+}
+
+@keyframes pulse {
+  from {
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 1), 0 0 0 0 rgb(99, 98, 98);
+  }
+  to {
+    box-shadow: 0 0 0 0.65em rgba(255, 255, 255, 1),
+      0 0 0 1em rgba(185, 206, 50, 0);
+  }
+}
+
+@keyframes scale {
+  0% {
+    transform: scale(0.95);
+  }
+
+  70% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(0.95);
+  }
 }
