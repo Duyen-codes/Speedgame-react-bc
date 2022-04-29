@@ -14,7 +14,7 @@ let clickSound = new Audio(click);
 let startSound = new Audio(startMusic);
 let stopSound = new Audio(stopMusic);
 
-// Return a random integer
+// generate a random integer
 const getRndInteger = (min, max) => {
   return Math.floor(Math.random() * (max - min + 1) + min);
 };
@@ -74,7 +74,7 @@ class App extends Component {
   };
 
   roundHandler = () => {
-    if (this.state.rounds >= 4) {
+    if (this.state.rounds >= 5) {
       // if player miss more than 4 rounds, game stops
       this.stopGameHandler();
       return;
@@ -90,6 +90,7 @@ class App extends Component {
       pace: this.state.pace * 0.95,
       rounds: this.state.rounds + 1,
     });
+    // set timer that waits 1000msc/1second to run this.roundHandler function
     this.timer = setTimeout(this.roundHandler, this.state.pace);
   };
 
