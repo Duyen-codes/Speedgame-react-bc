@@ -71,7 +71,7 @@ class App extends Component {
     });
   };
 
-  nextCircle = () => {
+  roundHandler = () => {
     if (this.state.rounds >= 4) {
       this.stopGameHandler();
       return;
@@ -85,13 +85,13 @@ class App extends Component {
       pace: this.state.pace * 0.95,
       rounds: this.state.rounds + 1,
     });
-    this.timer = setTimeout(this.nextCircle, this.state.pace);
+    this.timer = setTimeout(this.roundHandler, this.state.pace);
   };
 
   startGameHandler = () => {
     startSound.play();
     startSound.loop = true;
-    this.nextCircle();
+    this.roundHandler();
     this.setState({ gameOn: true });
   };
 
