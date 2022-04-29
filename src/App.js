@@ -14,6 +14,7 @@ let clickSound = new Audio(click);
 let startSound = new Audio(startMusic);
 let stopSound = new Audio(stopMusic);
 
+// Return a random integer
 const getRndInteger = (min, max) => {
   return Math.floor(Math.random() * (max - min + 1) + min);
 };
@@ -54,16 +55,17 @@ class App extends Component {
     if (clickSound.paused) {
       clickSound.play();
     } else {
-      // set playback of audio to 0 second, which is the start position
+      // set playback of audio to 0 second, which makes it start from the beginning
       clickSound.currentTime = 0;
     }
   };
 
+  // CIRCLE CLICK
   circleClickHandler = (i) => {
     this.clickPlay();
     if (this.state.current !== i) {
       this.stopGameHandler();
-      return;
+      return; // because if we don't return anything, it will continue infinitely
     }
     this.setState({
       score: this.state.score + 10,
@@ -73,13 +75,16 @@ class App extends Component {
 
   roundHandler = () => {
     if (this.state.rounds >= 4) {
+      // if player miss more than 4 rounds, game stops
       this.stopGameHandler();
       return;
     }
+
     let randnum;
+
     do {
-      randnum = getRndInteger(0, this.state.circles.length);
-    } while (randnum === this.state.current);
+      randnum = getRndInteger(0, this.state.circles.length - 1);
+    } while (randnum === this.state.current); // compare newly generated random number with the current one
     this.setState({
       current: randnum,
       pace: this.state.pace * 0.95,
