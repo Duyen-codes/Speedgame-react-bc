@@ -29,6 +29,7 @@ class App extends Component {
     gameOn: false,
     circles: [],
     isLevelSet: false,
+    topScore: localStorage.getItem("topScore"),
   };
 
   timer = null;
@@ -107,7 +108,8 @@ class App extends Component {
     startSound.pause();
     stopSound.play();
     clearTimeout(this.timer);
-    this.setState({ showGameOver: true, gameOn: false });
+    this.setState({ showGameOver: true, gameOn: false }); // show modal
+    this.setTopScore();
   };
 
   closeModalHandler = () => {
@@ -135,6 +137,13 @@ class App extends Component {
       circles: [],
       isLevelSet: false,
     });
+  };
+
+  setTopScore = () => {
+    if (this.state.score > this.state.topScore) {
+      this.setState({ topScore: this.state.score });
+      localStorage.setItem("topScore", this.state.score);
+    }
   };
 
   render() {
@@ -193,6 +202,7 @@ class App extends Component {
         {this.state.showGameOver && (
           <Popup
             score={this.state.score}
+            topScore={this.state.topScore}
             onClick={this.closeModalHandler}
             message={message}
           />

@@ -9,8 +9,8 @@ const Popup = (props) => {
         <button className={styles["close-modal-btn"]} onClick={props.onClick}>
           X
         </button>
-        <p className="result">Your final score is: {props.score}</p>
-
+        <h3 className="result">Your final score is: {props.score}</h3>
+        <h3>🌟 Top score: {props.topScore}</h3>
         <p className="message">{props.message}</p>
         <Button click={props.onClick}>Play again!</Button>
       </div>
